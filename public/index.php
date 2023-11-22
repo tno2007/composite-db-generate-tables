@@ -22,18 +22,25 @@ $contact = new Contact(
 );
 $table->save($contact);
 
+echo('id created: ' . $contact->id);
+echo('<br />');
+
+
 //Read
-$user = $table->findByPk(123);
+$contact = $table->findByPk($contact->id);
 
 //Update
-// $user->status = Status::BLOCKED;
-$table->save($user);
+$contact->is_test = true;
+$table->save($contact);
 
 //Delete
-$table->delete($user);
+$table->delete($contact);
+
+echo('id deleted: ' . $contact->id);
+echo('<br />');
 
 //Other selects out of the box
 $table->findAll();
 $table->countAll();
 
-echo 'done';
+echo('<p>done!</p>');
